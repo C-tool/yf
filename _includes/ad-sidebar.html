@@ -1,0 +1,12 @@
+
+<div class="card">
+  <div class="ad-slot">Sidebar ad (300x250 / 300x600)</div>
+  {% if site.adsense_client_id and site.adsense_slot_sidebar %}
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="{{ site.adsense_client_id }}"
+       data-ad-slot="{{ site.adsense_slot_sidebar }}"
+       data-ad-format="auto"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  {% endif %}
+</div>

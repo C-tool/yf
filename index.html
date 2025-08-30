@@ -1,0 +1,17 @@
+
+---
+layout: default
+title: Home
+---
+<section class="post-list">
+  {% for post in site.posts %}
+  <div class="card post-card">
+    <div style="width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg, var(--brand), var(--accent)); flex: none"></div>
+    <div>
+      <div class="meta">{{ post.date | date: "%b %d, %Y" }}</div>
+      <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
+      <div class="meta">{{ post.excerpt | strip_html | truncate: 140 }}</div>
+    </div>
+  </div>
+  {% endfor %}
+</section>

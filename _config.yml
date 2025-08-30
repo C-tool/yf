@@ -1,0 +1,21 @@
+title: SmartTool Blog
+description: A smart, tool-like blog theme for GitHub Pages with ad slots.
+url: ""  # add your custom domain later if any
+baseurl: ""
+theme: null
+markdown: kramdown
+kramdown:
+  input: GFM
+permalink: /:categories/:year/:month/:day/:title/
+paginate: 10
+paginate_path: "/page/:num/"
+collections:
+  posts:
+    output: true
+    permalink: /blog/:year/:month/:day/:title/
+# Optional analytics/ad IDs (set later)
+google_analytics: ""
+adsense_client_id: ""   # e.g., ca-pub-XXXXXXXXXXXXXXX
+adsense_slot_top: ""    # e.g., 1234567890
+adsense_slot_sidebar: ""
+adsense_slot_inline: ""

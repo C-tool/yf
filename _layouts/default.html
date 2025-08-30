@@ -1,0 +1,66 @@
+
+<!doctype html>
+<html lang="bn">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ page.title | default: site.title }}</title>
+  <meta name="description" content="{{ page.excerpt | strip_html | strip_newlines | truncate: 160 | default: site.description }}">
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+  <link rel="icon" href="{{ '/images/favicon.png' | relative_url }}">
+  <!-- Google AdSense (fill IDs in _config.yml) -->
+  {% if site.adsense_client_id %}
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client={{ site.adsense_client_id }}" crossorigin="anonymous"></script>
+  {% endif %}
+</head>
+<body>
+  <header class="header">
+    <nav class="nav">
+      <div class="brand">
+        <span class="brand-badge"></span>
+        <a href="{{ '/' | relative_url }}" style="color:inherit;text-decoration:none">{{ site.title }}</a>
+        <span class="tag">Blog</span>
+      </div>
+      <input type="search" placeholder="Search posts…">
+      <button id="modeToggle" class="btn toggle" aria-label="Toggle theme">Toggle</button>
+    </nav>
+  </header>
+  <div class="container">
+    <main class="panel main">
+      {% include ad-top.html %}
+      {{ content }}
+    </main>
+    <aside class="panel sidebar">
+      <div class="card">
+        <strong>About</strong>
+        <p>{{ site.description }}</p>
+      </div>
+      <div class="card">
+        <strong>Tools</strong>
+        <p>Quick links to your utilities.</p>
+        <div style="display:grid; grid-template-columns: 1fr 1fr; gap:8px">
+          <a class="btn" href="#">Converter</a>
+          <a class="btn" href="#">Calculator</a>
+          <a class="btn" href="#">Checker</a>
+          <a class="btn" href="#">Docs</a>
+        </div>
+      </div>
+      {% include ad-sidebar.html %}
+      <div class="card">
+        <strong>Tags</strong>
+        <p>
+        {% assign tags_list = site.tags %}
+        {% for tag in tags_list %}
+          <a class="tag" href="{{ '/tag/' | append: tag[0] | relative_url }}">{{ tag[0] }}</a>
+        {% endfor %}
+        </p>
+      </div>
+    </aside>
+  </div>
+  <footer class="footer">
+    <hr>
+    <div>© {{ "now" | date: "%Y" }} {{ site.title }} · Built on GitHub Pages · <a href="{{ '/feed.xml' | relative_url }}">RSS</a></div>
+  </footer>
+  <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
+</body>
+</html>
